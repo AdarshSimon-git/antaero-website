@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Antaero</title>
+<meta name="description" content="Antaero is building a drone that lifts four times its own weight for DARPA's 2028 Lift Challenge, and filming the whole build on YouTube.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a spec-sheet page. Wide hero with the payload-ratio gauge, then numbered-free sections on alternating grounds, one orange thesis band. */
+:root{
+  --bg:#F4F2EC; --bg-alt:#E9E5DA; --surface:#FFFDF8; --line:#D8D2C3;
+  --fg:#0F1B2D; --muted:#4A5568; --soft:#6B6558;
+  --accent:#B34A0E; --accent-strong:#F26B1D; --on-accent:#0F1B2D;
+  --gauge-track:#D8D2C3; --gauge-fill:#0F1B2D;
+  --display:'Oswald','Trebuchet MS',Arial Narrow,sans-serif;
+  --body:'IBM Plex Sans',Arial,Helvetica,sans-serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1B2D; --bg-alt:#13223A; --surface:#172841; --line:#26395A;
+  --fg:#F4F2EC; --muted:#C9D3DF; --soft:#8A96A6;
+  --accent:#F26B1D; --accent-strong:#F26B1D; --on-accent:#0F1B2D;
+  --gauge-track:#26395A; --gauge-fill:#F4F2EC; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0F1B2D; --bg-alt:#13223A; --surface:#172841; --line:#26395A;
+  --fg:#F4F2EC; --muted:#C9D3DF; --soft:#8A96A6;
+  --accent:#F26B1D; --accent-strong:#F26B1D; --on-accent:#0F1B2D;
+  --gauge-track:#26395A; --gauge-fill:#F4F2EC; color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent-strong);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:24px}
+@media (max-width:480px){.wrap{padding-inline:16px}}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:.005em}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lede{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:62ch}
+section{padding-block:clamp(64px,9vw,112px)}
+.alt{background:var(--bg-alt)}
+.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(32px,5vw,56px);max-width:780px}
+.sec-head h2{font-size:clamp(34px,5vw,54px);text-transform:uppercase}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.brand{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.12em;text-decoration:none;text-transform:uppercase}
+.brand span{color:var(--accent)}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;font-size:15px;font-weight:500;color:var(--muted)}
+.nav ul a:hover{color:var(--fg)}
+@media (max-width:760px){.nav ul{display:none}}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:600;font-size:16px;padding:14px 22px;border-radius:999px;text-decoration:none;border:2px solid var(--fg);transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-solid{background:var(--accent-strong);border-color:var(--accent-strong);color:var(--on-accent)}
+.btn-ghost{background:transparent;color:var(--fg)}
+.nav .btn{padding:9px 16px;font-size:14px}
+
+/* hero */
+.hero{padding-block:clamp(56px,8vw,104px) clamp(56px,7vw,88px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,72px);align-items:end}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(46px,7.4vw,96px);text-transform:uppercase;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{margin-top:24px}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.spec{border:1px solid var(--line);background:var(--surface);border-radius:6px;font-family:var(--mono);font-size:14px}
+.spec-title{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);color:var(--soft);letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+.spec dl{margin:0;display:grid;grid-template-columns:1fr auto}
+.spec dt,.spec dd{margin:0;padding:13px 20px;border-bottom:1px solid var(--line)}
+.spec dt{color:var(--muted)}
+.spec dd{text-align:right;font-weight:500;color:var(--fg);font-variant-numeric:tabular-nums}
+.spec dl > :nth-last-child(-n+2){border-bottom:none}
+.spec dd.hl{color:var(--accent)}
+
+/* gauge */
+.gauge{margin-top:clamp(56px,7vw,80px);padding-top:36px;border-top:1px solid var(--line)}
+.gauge-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:56px}
+.gauge-head p{font-family:var(--mono);font-size:13px;color:var(--soft);letter-spacing:.08em;text-transform:uppercase}
+.track{position:relative;height:14px;background:var(--gauge-track);border-radius:2px;margin-bottom:76px}
+.fill{position:absolute;inset:0 auto 0 0;width:76.8%;background:var(--gauge-fill);border-radius:2px}
+.target-zone{position:absolute;top:0;bottom:0;left:80%;right:0;background:repeating-linear-gradient(135deg,var(--accent-strong) 0 6px,transparent 6px 12px);opacity:.55}
+.tick{position:absolute;top:22px;transform:translateX(-50%);font-family:var(--mono);font-size:12px;color:var(--soft)}
+.tick::before{content:"";position:absolute;left:50%;top:-22px;width:1px;height:14px;background:var(--soft);opacity:.5}
+.mark{position:absolute;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;white-space:nowrap}
+.mark .pin{width:2px;background:var(--fg)}
+.mark .lbl{font-family:var(--mono);font-size:12px;line-height:1.35;text-align:center;color:var(--muted)}
+.mark .lbl b{display:block;font-family:var(--display);font-size:22px;font-weight:600;color:var(--fg);letter-spacing:.02em}
+.mark.below{top:-6px}.mark.below .pin{height:26px}
+.mark.above{bottom:-6px;flex-direction:column-reverse}.mark.above .pin{height:26px;background:var(--accent-strong)}
+.mark.above .lbl b{color:var(--accent)}
+.mark.below .lbl{margin-top:30px}
+.mark.above .lbl{margin-bottom:6px}
+.mark.m1{left:20%}.mark.m2{left:76.8%}.mark.m3{left:80%}
+@media (max-width:560px){.mark .lbl{font-size:11px}.mark .lbl b{font-size:18px}.tick{display:none}.mark.m2{left:72%}.mark.m2 .pin{transform:translateX(0)} }
+
+/* problem */
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:center}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.bignum{font-family:var(--display);font-weight:700;font-size:clamp(120px,18vw,220px);line-height:.9;color:var(--accent);letter-spacing:-.01em}
+.bignum-cap{margin-top:16px;color:var(--muted);max-width:30ch}
+.uses{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.uses li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.uses li span{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding-top:3px}
+@media (max-width:480px){.uses li{grid-template-columns:1fr;gap:4px}}
+.uses-title{font-family:var(--display);font-size:clamp(26px,3vw,34px);text-transform:uppercase}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:28px}
+.stat b{display:block;font-family:var(--display);font-size:clamp(48px,6vw,72px);font-weight:600;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.stat p{margin-top:12px;color:var(--muted)}
+.source{margin-top:24px;font-size:14px;color:var(--soft)}
+.source a{color:var(--soft)}
+
+/* rules table */
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;min-width:520px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:16px 22px;border-bottom:1px solid var(--line)}
+th{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+tr:last-child td{border-bottom:none}
+td.up{color:var(--accent);font-weight:600}
+.note{margin-top:20px;color:var(--muted);max-width:70ch}
+
+/* thesis band */
+.thesis{background:var(--accent-strong);color:#0F1B2D}
+.thesis .eyebrow{color:#0F1B2D}
+.thesis h2{font-size:clamp(44px,8vw,104px);text-transform:uppercase;margin-top:16px;color:#0F1B2D}
+.thesis p.big{margin-top:28px;font-size:clamp(19px,2.2vw,24px);max-width:58ch;color:#0F1B2D}
+
+/* tracks */
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+@media (max-width:800px){.tracks{grid-template-columns:1fr}}
+.track-card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:clamp(24px,3vw,40px)}
+.track-card h3{font-size:30px;text-transform:uppercase}
+.track-card .tag{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.track-card ul{margin:20px 0 0;padding-left:20px;color:var(--muted);display:grid;gap:8px}
+
+/* roadmap */
+.phases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+@media (max-width:960px){.phases{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.phases{grid-template-columns:1fr}}
+.phases li{border-top:4px solid var(--accent);padding-top:18px;display:flex;flex-direction:column;gap:8px}
+.phases li:last-child{border-top-color:var(--fg)}
+.phases .when{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.phases li:last-child .when{color:var(--fg)}
+.phases h3{font-size:26px;text-transform:uppercase}
+.phases p{color:var(--muted);font-size:16px}
+.phases .now{display:inline-block;align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--accent-strong);color:var(--on-accent);padding:3px 8px;border-radius:3px}
+
+/* team */
+.team{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px;align-items:start}
+@media (max-width:900px){.team{grid-template-columns:1fr}}
+.founder{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:10px}
+.founder .role{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.founder h3{font-size:40px;text-transform:uppercase}
+.founder p{color:var(--muted)}
+.founder a.li{margin-top:12px;display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;border-bottom:2px solid var(--accent-strong);align-self:flex-start;padding-bottom:2px}
+.roles-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.roles-head h3{font-size:26px;text-transform:uppercase}
+.roles-head span{font-family:var(--mono);font-size:13px;color:var(--soft)}
+.roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.roles{grid-template-columns:1fr}}
+.role-card{border:1px dashed var(--line);border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:4px;background:transparent}
+.role-card b{font-weight:600}
+.role-card span{color:var(--muted);font-size:15px}
+.role-card.key{border:1px solid var(--accent-strong)}
+.role-card .chip{align-self:flex-start;margin-top:6px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+
+/* contact */
+.audiences{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:860px){.audiences{grid-template-columns:1fr}}
+.aud{border-top:1px solid var(--fg);padding-top:20px;display:flex;flex-direction:column;gap:10px}
+.aud h3{font-size:28px;text-transform:uppercase}
+.aud p{color:var(--muted)}
+.mailbox{margin-top:clamp(40px,6vw,64px);display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;padding:clamp(22px,3vw,32px);background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.mailbox .addr{font-family:var(--display);font-size:clamp(26px,4vw,40px);font-weight:500;letter-spacing:.01em;user-select:all;word-break:break-all;min-width:0}
+.mailbox .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);width:100%}
+.copy{font:inherit;font-weight:600;font-size:15px;padding:10px 18px;border-radius:999px;border:2px solid var(--fg);background:transparent;color:var(--fg);cursor:pointer}
+.copy[data-done]{background:var(--fg);color:var(--bg)}
+
+footer{border-top:1px solid var(--line);padding-block:32px;font-size:14px;color:var(--soft)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+</style>
+
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Ant<span>aero</span></a>
+    <nav aria-label="Sections"><ul>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#challenge">Challenge</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul></nav>
+    <a class="btn btn-solid" href="#contact">Work with us</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Heavy-lift drones · DARPA Lift Challenge 2028</p>
+          <h1>A drone that lifts <em>four times</em> its own weight</h1>
+          <p class="lede">Antaero is building a heavy-lift drone for DARPA's 2028 Lift Challenge, and filming every test, failure and breakthrough on YouTube.</p>
+          <div class="ctas">
+            <a class="btn btn-solid" href="#contact">Partner with us</a>
+            <a class="btn btn-ghost" href="#approach">See the plan</a>
+          </div>
+        </div>
+        <aside class="spec" aria-label="2028 mission requirements">
+          <div class="spec-title"><span>Mission spec</span><span>DLC-2 · 2028</span></div>
+          <dl>
+            <dt>Aircraft weight</dt><dd>≤ 55 lb</dd>
+            <dt>Minimum payload</dt><dd class="hl">220 lb</dd>
+            <dt>Course length</dt><dd>10 nmi</dd>
+            <dt>Flown loaded</dt><dd>8 nmi</dd>
+            <dt>Payload-to-weight</dt><dd class="hl">≥ 4 : 1</dd>
+          </dl>
+        </aside>
+      </div>
+
+      <div class="gauge" role="img" aria-label="Payload-to-weight ratio scale from 0 to 5. Typical drones today: about 1 to 1. Best result at the 2026 Lift Challenge: 3.84 to 1. Antaero's target: 4 to 1 or more.">
+        <div class="gauge-head">
+          <h2 style="font-size:clamp(22px,2.6vw,28px);text-transform:uppercase">Payload-to-weight ratio</h2>
+          <p>Payload carried ÷ aircraft weight</p>
+        </div>
+        <div class="track" aria-hidden="true">
+          <div class="fill"></div>
+          <div class="target-zone"></div>
+          <span class="tick" style="left:0">0</span>
+          <span class="tick" style="left:40%">2</span>
+          <span class="tick" style="left:60%">3</span>
+          <span class="tick" style="left:100%">5</span>
+          <div class="mark below m1"><span class="pin"></span><span class="lbl"><b>1:1</b>Typical drone</span></div>
+          <div class="mark below m2"><span class="pin"></span><span class="lbl"><b>3.84:1</b>2026 best</span></div>
+          <div class="mark above m3"><span class="pin"></span><span class="lbl"><b>4:1+</b>Our target</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem" class="alt">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">The problem</p>
+        <p class="bignum" aria-label="1 to 1">1:1</p>
+        <p class="bignum-cap">The typical payload-to-weight ratio of a multirotor drone today. Most carry their own weight, or less.</p>
+      </div>
+      <div>
+        <h2 class="uses-title">What a 4:1 drone unlocks</h2>
+        <ul class="uses">
+          <li><span>Relief</span>Emergency supplies flown to cut-off areas</li>
+          <li><span>Agriculture</span>Crop spraying and seeding with larger loads</li>
+          <li><span>Construction</span>Materials lifted straight to work crews</li>
+          <li><span>Logistics</span>Cargo and resupply where there are no roads</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="challenge">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Why it's hard</p>
+        <h2>In 2026, nobody reached 4:1</h2>
+        <p class="lede">DARPA's first Lift Challenge drew 124 invited teams. The winner, a conventional single-rotor helicopter, came close but fell short of the target.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>124</b><p>teams invited to compete</p></div>
+        <div class="stat"><b>61</b><p>teams actually flew</p></div>
+        <div class="stat"><b>3.84:1</b><p>best ratio, and prizes were halved for missing 4:1</p></div>
+      </div>
+      <p class="source">Sources: <a href="https://www.darpa.mil/news/2026/lift-challenge-awards" rel="noopener">DARPA, Lift Challenge results</a> · <a href="https://dronexl.co/2026/08/10/darpa-lift-challenge-results-avidrone/" rel="noopener">DroneXL, Aug 10, 2026</a></p>
+
+      <div style="margin-top:clamp(56px,7vw,88px)">
+        <div class="sec-head">
+          <p class="eyebrow">The opportunity</p>
+          <h2>2028 doubles the payload</h2>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">Rule</th><th scope="col">2026</th><th scope="col">2028</th></tr></thead>
+            <tbody>
+              <tr><td>Max aircraft weight</td><td>55 lb</td><td>55 lb</td></tr>
+              <tr><td>Minimum payload</td><td>110 lb</td><td class="up">220 lb</td></tr>
+              <tr><td>Course length</td><td>5 nmi</td><td class="up">10 nmi (8 loaded)</td></tr>
+              <tr><td>Minimum ratio at max weight</td><td>2:1</td><td class="up">4:1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">New teams are welcome; competing in 2026 is not required. DARPA has not yet published the detailed 2028 rules. <a href="https://www.darpa.mil/research/challenges/lift" rel="noopener">DARPA Lift Challenge</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="thesis">
+    <div class="wrap">
+      <p class="eyebrow">Our thesis</p>
+      <h2>4:1 is an energy problem</h2>
+      <p class="big">The limit in 2026 wasn't lift. It was carrying the load for the whole course. We're working on power density, efficiency and weight, and we'll film every attempt.</p>
+    </div>
+  </section>
+
+  <section id="approach" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Our approach</p>
+        <h2>Two tracks, one team</h2>
+        <p class="lede">The engineering produces the story. The channel brings in the sponsors, talent and credibility that fund the engineering.</p>
+      </div>
+      <div class="tracks">
+        <div class="track-card">
+          <p class="tag">Engineering</p>
+          <h3>Build and test</h3>
+          <ul>
+            <li>Subscale test rigs before full-scale builds</li>
+            <li>Propulsion and power trials backed by data</li>
+            <li>Monthly design reviews</li>
+          </ul>
+        </div>
+        <div class="track-card" id="build">
+          <p class="tag">Build in public</p>
+          <h3>Film everything</h3>
+          <ul>
+            <li>Weekly build episodes and monthly deep-dives</li>
+            <li>Failures, test data and costs shown openly</li>
+            <li>Viewers weigh in on design decisions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Roadmap</p>
+        <h2>21 months to the start line</h2>
+      </div>
+      <ol class="phases">
+        <li><span class="when">Q4 2026</span><span class="now">Now</span><h3>Launch</h3><p>Form the team and launch the channel</p></li>
+        <li><span class="when">H1 2027</span><h3>Subscale</h3><p>Test rigs, propulsion and power trials</p></li>
+        <li><span class="when">H2 2027</span><h3>Full scale</h3><p>First 55 lb airframe flying with payload</p></li>
+        <li><span class="when">Early 2028</span><h3>Qualify</h3><p>Register once rules publish, FAA compliance</p></li>
+        <li><span class="when">Summer 2028</span><h3>Compete</h3><p>Finals in the US, and the series finale</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="team" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Team</p>
+        <h2>A small team that builds and films</h2>
+      </div>
+      <div class="team">
+        <div class="founder">
+          <p class="role">Founder</p>
+          <h3>Adarsh Simon</h3>
+          <p>Vision and architecture. An experienced maker.</p>
+          <a class="li" href="https://www.linkedin.com/in/adarsh-simon/" rel="noopener">LinkedIn profile <span aria-hidden="true">↗</span></a>
+        </div>
+        <div>
+          <div class="roles-head"><h3>We're hiring</h3><span>6 open roles</span></div>
+          <div class="roles">
+            <div class="role-card key"><b>Drone pilot</b><span>Licensed US drone pilot</span><span class="chip">Key role</span></div>
+            <div class="role-card"><b>Aerospace engineer</b><span>Design and testing</span></div>
+            <div class="role-card"><b>Mechanical lead</b><span>Rotors, motors, airframe</span></div>
+            <div class="role-card"><b>Simulations lead</b><span>FEA analysis</span></div>
+            <div class="role-card"><b>Electronics lead</b><span>Electrical controls and embedded software</span></div>
+            <div class="role-card"><b>Marketing</b><span>Sponsorships and content</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Work with us</p>
+        <h2>Help us build it</h2>
+      </div>
+      <div class="audiences">
+        <div class="aud"><h3>Sponsors</h3><p>Put your motors, batteries, materials or software in the build. Get product integration in episodes and your logo on the aircraft.</p></div>
+        <div class="aud"><h3>Investors</h3><p>Back a heavy-lift technology team at the earliest stage, with flight data published as we go.</p></div>
+        <div class="aud"><h3>Engineers</h3><p>Join one of our open roles, or bring expertise as an advisor.</p></div>
+      </div>
+      <div class="mailbox">
+        <span class="lbl">Get in touch</span>
+        <span class="addr" id="email">hello@antaero.tech</span>
+        <button class="copy" id="copyEmail" type="button">Copy email</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Antaero · antaero.tech</span>
+    <span>An independent team. Not affiliated with or endorsed by DARPA.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('copyEmail'), addr=document.getElementById('email');
+  btn.addEventListener('click',function(){
+    var text=addr.textContent.trim();
+    function done(){btn.textContent='Copied';btn.setAttribute('data-done','');setTimeout(function(){btn.textContent='Copy email';btn.removeAttribute('data-done')},1800)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(addr);var s=window.getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Press Ctrl+C to copy'}
+    try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+  });
+})();
+</script>
+</body>
+</html>
