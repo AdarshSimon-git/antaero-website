@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Antaero · Pitch deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+:root{--page:#0A1322;--bar:#0F1B2D;--line:#26395A;--fg:#F4F2EC;--muted:#8A96A6;--accent:#F26B1D;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--page);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bar);border-bottom:1px solid var(--line)}
+.top .in{max-width:1280px;margin-inline:auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:Oswald,'Trebuchet MS',sans-serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--fg);font-size:20px}
+.brand span{color:var(--accent)}
+.top .meta{font-size:14px;color:var(--muted)}
+.top a.back{font-size:14px;color:var(--fg);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.top a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+main{max-width:1280px;margin-inline:auto;padding:24px 20px 64px;display:flex;flex-direction:column;gap:24px}
+@media (max-width:480px){main{padding-inline:12px;gap:14px}.top .meta{display:none}}
+.frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.35);background:#0F1B2D}
+/* slide subset */
+.slide{position:absolute;top:0;left:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;font-family:'IBM Plex Sans',Arial,sans-serif;color:#3B4656;scroll-margin-top:80px}
+.slide *{box-sizing:border-box;margin:0}
+.slide div{min-width:0}
+.slide div:not([style*="display"]){display:flex;flex-direction:column}
+.slide h1{font-size:96px;font-weight:600;line-height:1.1}
+.slide h2{font-size:64px;font-weight:600;line-height:1.15}
+.slide h3{font-size:44px;font-weight:600;line-height:1.2}
+.slide p{font-size:32px;line-height:1.4}
+.slide ul{padding-left:1.1em;list-style:disc}
+.slide li{padding-left:.15em}
+.slide a{color:inherit;text-decoration:underline;text-underline-offset:.15em}
+.slide table{width:100%;border-collapse:collapse}
+.slide th,.slide td{padding:.35em .6em;text-align:left;border-bottom:1px solid rgba(127,140,160,.45);vertical-align:top}
+.slide th{font-weight:600}
+.slide .ico{flex:none;display:block}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 20px 40px}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="brand" href="/">Ant<span>aero</span></a>
+  <span class="meta">Pitch deck · 16 slides · Use ← → to move</span>
+  <a class="back" href="/">antaero.tech</a>
+</div></header>
+<main id="deck">
+<div class="frame"><section class="slide" aria-label="Slide 1 of 16" id="cover" data-transition="fade" style="display:flex; flex-direction:column; justify-content:space-between; padding:128px; background:#0f1b2d">
+  <p style="position:absolute; top:210px; right:128px; width:980px; font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:400px; font-weight:700; line-height:1; text-align:right; color:#1a2b45">4:1</p>
+  <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#f26b1d">DARPA Lift Challenge 2028 · Project 4:1</p>
+  <div style="display:flex; flex-direction:column; gap:32px">
+    <h1 style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:120px; font-weight:600; line-height:1.05; text-transform:uppercase; color:#f4f2ec">Ant<span style="color:#b34a0e">aero</span></h1>
+    <p style="width:1000px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:44px; line-height:1.3; color:#c9d3df">A drone that lifts four times its own weight, built in public on YouTube.</p>
+  </div>
+  <p style="font-family:'IBM Plex Sans', Arial, sans-serif; line-height:1.5; color:#8a96a6"><span style="color:#fffdf8"><b>Ant</b></span><span style="color:#f26b1d">Aero</span><span style="color:#fffdf8"> </span>· Adarsh Simon, Founder · antaero.tech · hello@antaero.tech</p>
+  
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 2 of 16" id="problem" data-transition="fade" style="display:flex; flex-direction:column; gap:56px; padding:128px 128px 160px; background:#f4f2ec">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#b34a0e">The problem</p>
+    <h2 style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:72px; font-weight:600; line-height:1.1; color:#0f1b2d">Today's drones carry about their own weight, or less</h2>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:96px; align-items:center">
+    <div style="width:560px; display:flex; flex-direction:column; gap:8px">
+      <p style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:240px; font-weight:700; line-height:1; color:#b34a0e">1:1</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; line-height:1.35; color:#3b4656">Typical payload-to-weight ratio of a multirotor drone today</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:24px; flex:1">
+      <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:44px; font-weight:600; color:#0f1b2d">What a 4:1 drone unlocks</h3>
+      <ul style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; line-height:1.5; color:#3b4656">
+        <li>Emergency supplies to cut-off areas</li>
+        <li>Crop spraying and seeding with larger loads</li>
+        <li>Construction materials lifted to work crews</li>
+        <li>Resupply and cargo where there are no roads</li>
+      </ul>
+    </div>
+  </div>
+  <p style="position:absolute; bottom:64px; left:128px; width:1664px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#6b6558">Source: DARPA Lift Challenge program page</p>
+  
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 3 of 16" id="dlc1" data-transition="fade" style="display:flex; flex-direction:column; gap:64px; padding:128px 128px 160px; background:#0f1b2d">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#f26b1d">Proof the problem is hard</p>
+    <h2 style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:72px; font-weight:600; line-height:1.1; color:#f4f2ec">2026: 124 teams invited. Nobody reached 4:1.</h2>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:32px">
+    <div style="display:flex; flex-direction:column; gap:16px; flex:1; padding:40px; background:#172841; border:1px solid #26395a; border-radius:16px">
+      <p style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:96px; font-weight:600; line-height:1; color:#f26b1d">124</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; line-height:1.35; color:#c9d3df">teams invited to compete</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; flex:1; padding:40px; background:#172841; border:1px solid #26395a; border-radius:16px">
+      <p style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:96px; font-weight:600; line-height:1; color:#f26b1d">61</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; line-height:1.35; color:#c9d3df">teams actually flew</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; flex:1; padding:40px; background:#172841; border:1px solid #26395a; border-radius:16px">
+      <p style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:96px; font-weight:600; line-height:1; color:#f26b1d">3.84:1</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; line-height:1.35; color:#c9d3df">best ratio, by a conventional helicopter</p>
+    </div>
+  </div>
+  <p style="position:absolute; bottom:64px; left:128px; width:1664px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#8a96a6">Sources: DARPA Lift Challenge results, Aug 2026; DroneXL, Aug 10, 2026</p>
+  
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 4 of 16" id="dlc2" data-transition="fade" style="display:flex; flex-direction:column; gap:48px; padding:128px 128px 160px; background:#f4f2ec">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#b34a0e">The opportunity</p>
+    <h2 style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:72px; font-weight:600; line-height:1.1; color:#0f1b2d">2028 raises the bar, and the stakes</h2>
+  </div>
+  <table style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; color:#0f1b2d">
+    <tr><th style="width:44%">Rule</th><th style="width:22%">2026</th><th style="width:34%">2028</th></tr>
+    <tr><td>Max aircraft weight</td><td>55 lb</td><td>55 lb</td></tr>
+    <tr><td>Minimum payload</td><td>110 lb</td><td>220 lb</td></tr>
+    <tr><td>Course length</td><td>5 nmi</td><td>10 nmi (8 loaded)</td></tr>
+    <tr><td>Minimum ratio at max weight</td><td>2:1</td><td>4:1</td></tr>
+    <tr><td>Preparation time</td><td>Under 1 year</td><td>About 1.5 years</td></tr>
+  </table>
+  <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; line-height:1.4; color:#3b4656">New teams are welcome: 2026 participation is not required. Detailed 2028 rules are not yet published.</p>
+  <p style="position:absolute; bottom:64px; left:128px; width:1664px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#6b6558">Source: DARPA Lift Challenge page, "Returning in 2028"</p>
+  
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 5 of 16" id="market" data-transition="fade" style="background:#0F1B2D;color:#C9D3DF;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#F26B1D">The market after 2028</p>
+<h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:72px;font-weight:600;line-height:1.1;color:#F4F2EC">Defence is already asking for this aircraft</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#172841;border:1px solid #26395A;border-radius:16px;padding:40px">
+<p style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:96px;font-weight:600;line-height:1;color:#F26B1D">2,715</p>
+<p style="font-size:28px;line-height:1.4">logistics drones sought by the Indian Army for frontline and high-altitude supply (RFI, Aug 2026)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#172841;border:1px solid #26395A;border-radius:16px;padding:40px">
+<p style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:96px;font-weight:600;line-height:1;color:#F26B1D">200 kg</p>
+<p style="font-size:28px;line-height:1.4">payload DRDO wants from a fuel-engine VTOL drone for Army posts (Aug 2026)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#172841;border:1px solid #26395A;border-radius:16px;padding:40px">
+<p style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:96px;font-weight:600;line-height:1;color:#F26B1D">$58.8B</p>
+<p style="font-size:28px;line-height:1.4">cargo drone market by 2035, up from $2.1B in 2025 (one analyst forecast)</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#C9D3DF"><b style="color:#F4F2EC">Also:</b> disaster relief and emergency supplies · crop spraying · firefighting · ship-to-shore and offshore resupply · power-line and construction lifts · mining sites</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#8A96A6">Sources: The Tribune, Aug 2026; idrw.org, Aug 26, 2026; Global Market Insights, cargo drones market</p>
+
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 6 of 16" id="thesis" data-transition="fade" style="background:#F26B1D;color:#0F1B2D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#0F1B2D">Our thesis</p>
+<h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:120px;font-weight:700;line-height:1.05;text-transform:uppercase;color:#0F1B2D">4:1 is an energy problem</h2>
+<p style="font-size:44px;line-height:1.35;width:1400px;color:#0F1B2D">The limit in 2026 was not lift. It was carrying the load for the whole course. We will attack power density, efficiency and weight, and film every attempt.</p>
+
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 7 of 16" id="design" data-transition="fade" style="background:#F4F2EC;color:#3B4656;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#B34A0E">Our aircraft</p>
+<h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:72px;font-weight:600;line-height:1.1;color:#0F1B2D">A gas-electric single-rotor helicopter</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFDF8;border:1px solid #DDD8CC;border-top:6px solid #B34A0E;border-radius:16px;padding:40px">
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#0F1B2D">Gasoline main rotor</h3>
+<p style="font-size:28px;line-height:1.45">Gasoline holds about 45 times more energy per kg than lithium batteries. That is what a 10 nmi loaded course needs.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFDF8;border:1px solid #DDD8CC;border-top:6px solid #B34A0E;border-radius:16px;padding:40px">
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#0F1B2D">Electric tail rotor</h3>
+<p style="font-size:28px;line-height:1.45">No tail driveshaft or gearbox to carry, and fast, precise yaw control.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFDF8;border:1px solid #DDD8CC;border-top:6px solid #0F1B2D;border-radius:16px;padding:40px">
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#0F1B2D">Every gram counts</h3>
+<p style="font-size:28px;line-height:1.45">We optimise the engine, blades and airframe to be as light as possible.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#0F1B2D"><b>Proven layout:</b> the 2026 winner was also a single-rotor helicopter, at 3.84:1.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B6558">Energy: gasoline ≈ 12.9 kWh/kg vs Li-ion packs ≈ 0.25 kWh/kg. Source for 2026 winner: DroneXL, Aug 10, 2026</p>
+
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 8 of 16" id="approach" data-transition="fade" style="background:#0F1B2D;color:#C9D3DF;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#F26B1D">Our approach</p>
+<h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:72px;font-weight:600;line-height:1.1;color:#F4F2EC">Two tracks, one team</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px;background:#172841;border:1px solid #26395A;border-top:6px solid #F26B1D;border-radius:16px;padding:48px">
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#F4F2EC">Engineering track</h3>
+<ul style="font-size:32px;line-height:1.5">
+<li>Gas-electric helicopter, built as light as possible</li>
+<li>Subscale test rigs before full-scale builds</li>
+<li>Monthly data-driven design reviews</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px;background:#172841;border:1px solid #26395A;border-top:6px solid #7FA7C9;border-radius:16px;padding:48px">
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#F4F2EC">Media track</h3>
+<ul style="font-size:32px;line-height:1.5">
+<li>Weekly build episodes, monthly deep-dives</li>
+<li>Failures, test data and costs shown openly</li>
+<li>Community input on design decisions</li>
+</ul>
+</div>
+</div>
+
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 9 of 16" id="youtube" data-transition="fade" style="background:#F4F2EC;color:#3B4656;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#B34A0E">Why build in public</p>
+<h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:72px;font-weight:600;line-height:1.1;color:#0F1B2D">The channel is an asset, whatever the result</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFDF8;border:1px solid #DDD8CC;border-radius:16px;padding:48px">
+<svg class="ico" style="color:#B34A0E;width:64px;height:64px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>
+<h3 style="font-size:44px;font-weight:600;color:#0F1B2D">Audience</h3>
+<p style="font-size:32px;line-height:1.4">Engineering build series draw loyal, technical viewers.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFDF8;border:1px solid #DDD8CC;border-radius:16px;padding:48px">
+<svg class="ico" style="color:#B34A0E;width:64px;height:64px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 13.6c2.6.2 4.5 2.1 4.5 4.9"/></svg>
+<h3 style="font-size:44px;font-weight:600;color:#0F1B2D">Partners</h3>
+<p style="font-size:32px;line-height:1.4">Visible progress attracts component sponsors and recruits.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFDF8;border:1px solid #DDD8CC;border-radius:16px;padding:48px">
+<svg class="ico" style="color:#B34A0E;width:64px;height:64px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+<h3 style="font-size:44px;font-weight:600;color:#0F1B2D">Credibility</h3>
+<p style="font-size:32px;line-height:1.4">Public test data is traction backers can verify.</p>
+</div>
+</div>
+
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 10 of 16" id="revenue" data-transition="fade" style="background:#0F1B2D;color:#C9D3DF;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#F26B1D">How the project funds itself</p>
+<h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:72px;font-weight:600;line-height:1.1;color:#F4F2EC">Five revenue streams, staged over time</h2>
+</div>
+<table style="font-size:32px;color:#E8ECF1">
+<tr><th style="width:62%;text-align:left">Stream</th><th style="width:38%;text-align:left">Timing</th></tr>
+<tr><td>Sponsorships: components, software, tools</td><td>From launch</td></tr>
+<tr><td>YouTube ads and channel memberships</td><td>Grows with audience</td></tr>
+<tr><td>Crowdfunding backer tiers</td><td>Around key milestones</td></tr>
+<tr><td>DARPA prize money</td><td>Summer 2028, uncertain</td></tr>
+<tr><td>Spin-off: IP, grants, contracts</td><td>2028 onward</td></tr>
+</table>
+
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 11 of 16" id="roadmap" data-transition="fade" style="background:#F4F2EC;color:#3B4656;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#B34A0E">Roadmap</p>
+<h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:72px;font-weight:600;line-height:1.1;color:#0F1B2D">21 months to the start line</h2>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:6px solid #B34A0E;padding:24px 0 0 0">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B34A0E">Q4 2026</p>
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#0F1B2D">Launch</h3>
+<p style="font-size:24px;line-height:1.45">Team formed, US lead confirmed, channel live</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:6px solid #B34A0E;padding:24px 0 0 0">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B34A0E">H1 2027</p>
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#0F1B2D">Subscale</h3>
+<p style="font-size:24px;line-height:1.45">Test rigs, propulsion and power trials</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:6px solid #B34A0E;padding:24px 0 0 0">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B34A0E">H2 2027</p>
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#0F1B2D">Full scale</h3>
+<p style="font-size:24px;line-height:1.45">First 55 lb airframe flying with payload</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:6px solid #B34A0E;padding:24px 0 0 0">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B34A0E">Early 2028</p>
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#0F1B2D">Qualify</h3>
+<p style="font-size:24px;line-height:1.45">Register once rules publish; FAA compliance</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:6px solid #0F1B2D;padding:24px 0 0 0">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0F1B2D">Summer 2028</p>
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#0F1B2D">Compete</h3>
+<p style="font-size:24px;line-height:1.45">Finals in the US and the series finale</p>
+</div>
+</div>
+
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 12 of 16" id="team" data-transition="fade" style="display:flex; flex-direction:column; gap:56px; padding:128px; background:#0f1b2d">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#f26b1d">Team</p>
+    <h2 style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:72px; font-weight:600; line-height:1.1; color:#f4f2ec">A small team that builds and films</h2>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:32px">
+    <div style="width:560px; display:flex; flex-direction:column; gap:20px; padding:48px; background:#172841; border:1px solid #26395a; border-radius:16px">
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#f26b1d">Founder</p>
+      <h3 style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:44px; font-weight:600; color:#f4f2ec">Adarsh Simon</h3>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:28px; line-height:1.45; color:#c9d3df">Vision, Architecture</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.45; color:#8a96a6">Experienced Maker</p>
+      <div style="display:flex; flex-direction:row; gap:12px; align-items:center">
+        <svg class="ico" style="width:32px; height:32px; color:#f26b1d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/></svg>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; color:#f4f2ec"><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/adarsh-simon/">LinkedIn</a></p>
+      </div>
+    </div>
+    <div style="display:grid; gap:24px; grid-template-columns:1fr 1fr; flex:1">
+      <div style="display:flex; flex-direction:column; gap:8px; padding:32px; background:#172841; border:2px solid #26395a; border-radius:16px">
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; color:#f4f2ec">Drone Pilot</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.4; color:#c9d3df">John Cyriac · Licensed US drone pilot</p>
+        <div style="display:flex; flex-direction:row; gap:12px; align-items:center">
+          <svg class="ico" style="width:28px; height:28px; color:#f26b1d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/></svg>
+          <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; color:#f4f2ec"><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/john-cyriac/">LinkedIn</a></p>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; padding:32px; background:#172841; border:1px solid #26395a; border-radius:16px">
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; color:#f4f2ec">Mechanical Lead - Open</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.4; color:#c9d3df">rotors, motors, airframe</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; padding:32px; background:#172841; border:1px solid #26395a; border-radius:16px">
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; color:#f4f2ec">Simulations Lead - Open</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.4; color:#c9d3df">FEA analysis</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; padding:32px; background:#172841; border:1px solid #26395a; border-radius:16px">
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; color:#f4f2ec">Electronics Lead - Open</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.4; color:#c9d3df">Electrical controls and embedded software</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; padding:32px; background:#172841; border:1px solid #26395a; border-radius:16px">
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; color:#f4f2ec">Marketing - Open</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.4; color:#c9d3df">Sponsorship and Content management</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; padding:32px; background:#172841; border:1px solid #26395a; border-radius:16px">
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; color:#f4f2ec">Aerospace engineer - Open</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.4; color:#c9d3df">Design, Testing</p>
+      </div>
+    </div>
+  </div>
+  
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 13 of 16" id="ask" data-transition="fade" style="display:flex; flex-direction:column; gap:56px; padding:128px; background:#f4f2ec">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#b34a0e">The ask</p>
+    <h2 style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:72px; font-weight:600; line-height:1.1; color:#0f1b2d">Raising $800,000 in two stages</h2>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:64px">
+    <div style="display:flex; flex-direction:column; gap:24px; flex:1">
+      <div style="display:flex; flex-direction:column; gap:12px; padding:36px; background:#fffdf8; border:1px solid #ddd8cc; border-radius:12px">
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; color:#0f1b2d">Stage 1 · now · $500K</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.45; color:#3b4656">SAFE for 10% equity in Antaero, an Indian company. Funds 12 months: team, subscale hardware, channel launch.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; padding:36px; background:#fffdf8; border:1px solid #ddd8cc; border-radius:12px">
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; color:#0f1b2d">Stage 2 · late 2027 · $300K</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.45; color:#3b4656">Seed round on subscale results. Funds the full-scale build, US testing and the finals.</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; flex:1">
+      <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; color:#0f1b2d">Use of Stage 1 funds</h3>
+      <table style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:28px; color:#0f1b2d">
+        <tr><td style="width:78%">Hardware and test flights</td><td style="width:22%; text-align:right">45%</td></tr>
+        <tr><td>Team stipends</td><td style="text-align:right">30%</td></tr>
+        <tr><td>Video production</td><td style="text-align:right">5%</td></tr>
+        <tr><td>US travel, testing, compliance</td><td style="text-align:right">10%</td></tr>
+        <tr><td>Contingency</td><td style="text-align:right">10%</td></tr>
+      </table>
+    </div>
+  </div>
+  
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 14 of 16" id="backers" data-transition="fade" style="background:#0F1B2D;color:#C9D3DF;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#F26B1D">For backers</p>
+<h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:72px;font-weight:600;line-height:1.1;color:#F4F2EC">What you get</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px;background:#172841;border:1px solid #26395A;border-top:6px solid #F26B1D;border-radius:16px;padding:48px">
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#F4F2EC">Investors</h3>
+<ul style="font-size:32px;line-height:1.5">
+<li>Equity in Antaero and its IP, via a SAFE</li>
+<li>First look at commercial heavy-lift uses</li>
+<li>Upside from prizes and follow-on contracts</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px;background:#172841;border:1px solid #26395A;border-top:6px solid #7FA7C9;border-radius:16px;padding:48px">
+<h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:44px;font-weight:600;color:#F4F2EC">Sponsors</h3>
+<ul style="font-size:32px;line-height:1.5">
+<li>Product integration in build episodes</li>
+<li>Logo on the aircraft and team gear</li>
+<li>Co-branded technical content</li>
+</ul>
+</div>
+</div>
+
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 15 of 16" id="risks" data-transition="fade" style="display:flex; flex-direction:column; gap:48px; padding:128px; background:#f4f2ec">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#b34a0e">Risks, stated plainly</p>
+    <h2 style="font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:72px; font-weight:600; line-height:1.1; color:#0f1b2d">What could go wrong, and our plan</h2>
+  </div>
+  <table style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:28px; color:#0f1b2d">
+    <tr><th style="width:46%">Risk</th><th style="width:54%">Mitigation</th></tr>
+    <tr><td>Eligibility: US team lead and US entity needed for prizes</td><td>US registered drone pilot on team; incorporate a US entity early</td></tr>
+    <tr><td>Technical: no team reached 4:1 in 2026</td><td>Subscale first; value not tied to winning</td></tr>
+    <tr><td>Prize: awards halved below 4:1</td><td>Revenue plan does not depend on the prize</td></tr>
+    <tr><td>Rules: 2028 details not yet published</td><td>Design margins; track DARPA updates closely</td></tr>
+  </table>
+  
+</section></div>
+<div class="frame"><section class="slide" aria-label="Slide 16 of 16" id="close" data-transition="fade" style="display:flex; flex-direction:column; justify-content:space-between; padding:128px; background:#0f1b2d">
+  <p style="position:absolute; top:210px; right:128px; width:980px; font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:400px; font-weight:700; line-height:1; text-align:right; color:#1a2b45">4:1</p>
+  <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#f26b1d">Join us</p>
+  <h2 style="width:1100px; font-family:Oswald, 'Trebuchet MS', sans-serif; font-size:120px; font-weight:600; line-height:1.05; text-transform:uppercase; color:#f4f2ec">Let's build it !</h2>
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; color:#f4f2ec">Adarsh Simon · Founder, Antaero</p>
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:28px; color:#c9d3df">hello@antaero.tech · <a target="_blank" rel="noopener" href="https://antaero.tech">antaero.tech</a> · <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/adarsh-simon/">LinkedIn</a></p>
+  </div>
+  
+</section></div>
+</main>
+<footer>© 2026 Antaero · <a href="mailto:hello@antaero.tech">hello@antaero.tech</a> · An independent team, not affiliated with or endorsed by DARPA.</footer>
+<script>
+(function(){
+  var frames=[].slice.call(document.querySelectorAll('.frame'));
+  function fit(){frames.forEach(function(f){var s=f.firstElementChild;s.style.transform='scale('+(f.clientWidth/1920)+')';});}
+  window.addEventListener('resize',fit);fit();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  function current(){var y=window.scrollY+90,i=0;frames.forEach(function(f,k){if(f.offsetTop<=y)i=k;});return i;}
+  document.addEventListener('keydown',function(e){
+    if(e.target.closest&&e.target.closest('input,textarea'))return;
+    var d=(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key==='PageDown'||e.key===' ')?1:(e.key==='ArrowLeft'||e.key==='ArrowUp'||e.key==='PageUp')?-1:0;
+    if(!d)return;e.preventDefault();
+    var n=Math.max(0,Math.min(frames.length-1,current()+d));
+    window.scrollTo({top:frames[n].offsetTop-72,behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
