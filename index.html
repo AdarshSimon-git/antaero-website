@@ -143,6 +143,20 @@ td.up{color:var(--accent);font-weight:600}
 .track-card .tag{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
 .track-card ul{margin:20px 0 0;padding-left:20px;color:var(--muted);display:grid;gap:8px}
 
+/* aircraft */
+.parts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--fg)}
+@media (max-width:860px){.parts{grid-template-columns:1fr}}
+.part{padding:28px 28px 28px 0;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--line)}
+.part + .part{padding-left:28px;border-left:1px solid var(--line)}
+@media (max-width:860px){.part + .part{padding-left:0;border-left:none}}
+.part .tag{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.part h3{font-size:30px;text-transform:uppercase}
+.part p:last-child{color:var(--muted)}
+
+/* market */
+.tags{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.tags li{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px;color:var(--muted)}
+
 /* roadmap */
 .phases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
 @media (max-width:960px){.phases{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -199,7 +213,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <nav aria-label="Sections"><ul>
       <li><a href="#problem">Problem</a></li>
       <li><a href="#challenge">Challenge</a></li>
-      <li><a href="#approach">Approach</a></li>
+      <li><a href="#aircraft">Aircraft</a></li>
+      <li><a href="#market">Market</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#team">Team</a></li>
     </ul></nav>
@@ -314,6 +329,34 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </section>
 
+  <section id="aircraft">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Our aircraft</p>
+        <h2>A gas-electric single-rotor helicopter</h2>
+        <p class="lede">The 2026 winner was also a single-rotor helicopter. We're taking the same proven layout and changing how it's powered.</p>
+      </div>
+      <div class="parts">
+        <div class="part">
+          <p class="tag">Main rotor</p>
+          <h3>Gasoline engine</h3>
+          <p>Gasoline holds about 45 times more energy per kilogram than lithium batteries. That's what a 10 nmi loaded course needs.</p>
+        </div>
+        <div class="part">
+          <p class="tag">Tail rotor</p>
+          <h3>Electric drive</h3>
+          <p>No tail driveshaft or gearbox to carry, and fast, precise yaw control.</p>
+        </div>
+        <div class="part">
+          <p class="tag">Structure</p>
+          <h3>Every gram counts</h3>
+          <p>We optimise the engine, blades and airframe to be as light as possible.</p>
+        </div>
+      </div>
+      <p class="source">Gasoline ≈ 12.9 kWh/kg; lithium-ion packs ≈ 0.25 kWh/kg.</p>
+    </div>
+  </section>
+
   <section id="approach" class="alt">
     <div class="wrap">
       <div class="sec-head">
@@ -326,7 +369,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <p class="tag">Engineering</p>
           <h3>Build and test</h3>
           <ul>
-            <li>Subscale test rigs before full-scale builds</li>
+            <li>Subscale engine and rotor test rigs before full-scale builds</li>
             <li>Propulsion and power trials backed by data</li>
             <li>Monthly design reviews</li>
           </ul>
@@ -344,7 +387,26 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </section>
 
-  <section id="roadmap">
+  <section id="market">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Beyond 2028</p>
+        <h2>Who needs heavy lift</h2>
+        <p class="lede">Defence logistics is already asking for exactly this kind of aircraft, and civilian uses follow close behind.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>2,715</b><p>logistics drones sought by the Indian Army for frontline and high-altitude supply (Aug 2026)</p></div>
+        <div class="stat"><b>200 kg</b><p>payload DRDO wants from a fuel-engine vertical-takeoff drone for Army posts (Aug 2026)</p></div>
+        <div class="stat"><b>$58.8B</b><p>projected cargo drone market by 2035, up from $2.1B in 2025 (one analyst forecast)</p></div>
+      </div>
+      <ul class="tags" aria-label="Other uses">
+        <li>Disaster relief</li><li>Emergency supplies</li><li>Crop spraying</li><li>Firefighting</li><li>Ship-to-shore resupply</li><li>Power-line and construction lifts</li><li>Mining sites</li>
+      </ul>
+      <p class="source">Sources: <a href="https://www.tribuneindia.com/news/defence/army-seeks-over-2700-logistics-drones-for-high-altitude-frontline-supply-missions/" rel="noopener">The Tribune</a> · <a href="https://idrw.org/drdo-seeks-indigenous-heavy-fuel-vtol-logistics-drone-for-high-altitude-army-posts/" rel="noopener">idrw.org</a> · <a href="https://www.gminsights.com/industry-analysis/cargo-drones-market" rel="noopener">Global Market Insights</a></p>
+    </div>
+  </section>
+
+  <section id="roadmap" class="alt">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Roadmap</p>
@@ -360,7 +422,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </section>
 
-  <section id="team" class="alt">
+  <section id="team">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Team</p>
